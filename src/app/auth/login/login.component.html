@@ -1,0 +1,61 @@
+<section class="login-section">
+  <div class="container main-form-container">
+    <div class="row">
+      <div class="col-md-6 offset-md-3">
+        <div class="form-contianer">
+
+          <h3 class="title">login</h3>
+
+          <div class="alert alert-danger" role="alert" *ngIf="showLoginError">
+            error in email or password
+          </div>
+
+          <form action="" class="form" [formGroup]="loginForm" (ngSubmit)="loginSubmit()">
+
+            <!-- email -->
+            <div class="form-group">
+              <label for="">E-mail</label>
+
+              <div class="alert alert-danger" role="alert"
+                *ngIf="loginForm.controls.email.invalid && loginForm.controls.email.touched">
+                <ul class="error-ul">
+                  <li *ngIf="loginForm.controls.email.errors.email || loginForm.controls.email.errors.pattern">hould be
+                    like`user@gmail.com`</li>
+                </ul>
+              </div>
+              <input type="text" name="email" id="" class="form-control" placeholder="demo@demo.com"
+                formControlName="email">
+            </div>
+            <!-- password -->
+            <div class="form-group">
+              <label for="">Password</label>
+              <div class="alert alert-danger" role="alert"
+                *ngIf="loginForm.controls.password.invalid && loginForm.controls.password.touched &&loginForm.controls.password.dirty">
+                <ul class="error-ul">
+                  <li *ngIf="loginForm.controls.password.errors.minlength">
+                    min size 8 characters
+                  </li>
+                  <li *ngIf="loginForm.controls.password.errors.required">
+                    required
+                  </li>
+                </ul>
+              </div>
+              <input type="password" name="password" id="" class="form-control" placeholder="demodemo"
+                formControlName="password">
+            </div>
+
+
+            <a routerLink="/registeration" class="reg-link">register new account</a>
+
+            <button class="submit" value="submit" class="submit-btn"
+              [disabled]="!loginForm.valid || isLoadinglogin">Submit</button>
+          </form>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</section>

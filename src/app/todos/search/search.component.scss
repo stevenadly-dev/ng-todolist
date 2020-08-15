@@ -1,0 +1,39 @@
+.searchcontainer {
+  position: relative;
+  width: 100%;
+  button {
+    position: absolute;
+    bottom: 12px;
+    right: 10px;
+    background: none;
+    border: none;
+    padding: 0;
+  }
+  input {
+    all: unset;
+    border: 2px solid black !important;
+    min-height: 40px;
+    background: transparent;
+    color: black;
+    width: 100%;
+    text-indent: 20px;
+    margin-top: 25px !important;
+    font-family: "Reenie Beanie", arial, sans-serif;
+    font-size: 1.6em;
+    font-weight: bold;
+
+    &:focus {
+      outline: none;
+      box-shadow: none;
+    }
+    border-radius: 25px;
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    -ms-border-radius: 25px;
+    -o-border-radius: 25px;
+  }
+  ::placeholder {
+    color: black;
+    opacity: 1; /* Firefox */
+  }
+}

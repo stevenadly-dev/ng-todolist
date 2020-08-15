@@ -1,0 +1,16 @@
+.completed-not-all {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .btn {
+    padding: 3px 1em;
+    margin: 0px 10px;
+    border: 2px solid black;
+    border-radius: 15px;
+
+    &:hover,
+    &.active {
+      background: white !important;
+    }
+  }
+}

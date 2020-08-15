@@ -1,0 +1,7 @@
+<div class="completed-not-all">
+  <button class="btn" (click)="filterCompletedOrNot('all')" [ngClass]="{'active': completeType == 'all'}">all</button>
+  <button class="btn" (click)="filterCompletedOrNot('completed')"
+    [ngClass]="{'active': completeType == 'completed'}">completed</button>
+  <button class="btn" (click)="filterCompletedOrNot('notcompleted')"
+    [ngClass]="{'active': completeType == 'notcompleted'}">uncomleted</button>
+</div>

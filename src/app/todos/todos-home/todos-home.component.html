@@ -1,0 +1,49 @@
+<section class="todo-section">
+
+
+
+  <div class="container">
+    <app-search (searchOutput)='searchValue=$event'></app-search>
+    <app-add-task [todoList]=todoList></app-add-task>
+  </div>
+  <div class="container-fluid">
+
+
+    <app-complete-or-not-filters [completeType]=completeType
+      (filterCompletedOrNotOutput)='filterCompletedOrNot($event)'>
+    </app-complete-or-not-filters>
+
+
+
+    <ul>
+      <ng-container
+        *ngFor="let todo of todoList | paginate: { itemsPerPage: 10, currentPage: p } | search:searchValue | completedNotCompleted:completeType  ">
+        <li>
+          <div class="a" [ngClass]="{'': !todo.completed, 'completed': todo.completed}">
+
+
+            <button class="done-btn" (click)="completeTask(todo._id)" [disabled]=markAsCompleted>
+              <i class="fas fa-check"></i>
+            </button>
+            <button class="trash-btn" (click)="deleteTask(todo._id)" [disabled]=deleting>
+              <i class="fas fa-trash-alt"></i>
+            </button>
+
+            <p>{{todo.description |slice:0:50}}..</p>
+
+
+          </div>
+        </li>
+      </ng-container>
+
+
+    </ul>
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+
+
+
+
+
+
+  </div>
+</section>

@@ -1,0 +1,86 @@
+<section class="login-section">
+  <div class="container main-form-container">
+    <div class="row">
+      <div class="col-md-6 offset-md-3">
+        <div class="form-contianer">
+
+          <h3 class="title">registeration</h3>
+          <form action="" class="form" [formGroup]="registerationForm" (ngSubmit)="submitFn()" #form="ngForm">
+            <!-- name -->
+            <div class="form-group">
+
+              <label for="">Name</label>
+              <div class="alert alert-danger" role="alert" *ngIf="Uname.invalid && Uname.touched">
+                <ul class="error-ul">
+                  <li *ngIf="Uname.errors.required"> first name is required</li>
+                  <li *ngIf="Uname.errors.minlength">min length is Three</li>
+                  <li *ngIf="Uname.errors.haveNumbers">name shouldn't have numbers</li>
+                  <!-- pristen that means untouched element ever -->
+                  <!-- <li *ngIf="Uname.errors.pattern">should start in Uppercase</li> -->
+
+                </ul>
+              </div>
+              <input type="text" name="name" id="" class="form-control" placeholder="" formControlName="name">
+            </div>
+            <!-- email -->
+            <div class="form-group">
+              <label for="">E-mail</label>
+
+              <div class="alert alert-danger" role="alert" *ngIf="Uemail.invalid && Uemail.touched">
+                <ul class="error-ul">
+                  <li *ngIf="Uemail.errors.email || Uemail.errors.pattern">hould be like`user@gmail.com`</li>
+                </ul>
+              </div>
+              <input type="text" name="email" id="" class="form-control" placeholder="" formControlName="email">
+            </div>
+
+            <!-- password -->
+            <div class="form-group">
+              <label for="">Password</label>
+              <div class="alert alert-danger" role="alert"
+                *ngIf="Upassword.invalid && Upassword.touched &&Upassword.dirty">
+                <ul class="error-ul">
+                  <li *ngIf="Upassword.errors.minlength">
+                    min size 8 characters
+                  </li>
+                  <li *ngIf="Upassword.errors.required">
+                    required
+                  </li>
+                </ul>
+              </div>
+              <input type="password" name="password" id="" class="form-control" placeholder=""
+                formControlName="password">
+            </div>
+
+            <!-- age -->
+            <div class="form-group">
+              <label for="">Age</label>
+              <div class="alert alert-danger" role="alert" *ngIf="Uage.invalid && Uage.touched">
+                <ul class="error-ul">
+                  <li *ngIf="Uage.errors.required">
+                    required
+                  </li>
+                  <li *ngIf="Upassword.errors.pattern">
+                    should be number
+                  </li>
+                </ul>
+              </div>
+              <input type="text" name="age" id="" class="form-control" placeholder="" formControlName="age">
+            </div>
+
+            <a routerLink='/login' class="reg-link">I already have account</a>
+
+            <button class="submit" value="submit" class="submit-btn"
+              [disabled]="registerationForm.invalid || isLoadingReg">Submit</button>
+
+
+          </form>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</section>

@@ -1,0 +1,11 @@
+<div class="row">
+  <div class="col-md-6 offset-md-3">
+    <div class="form-group searchcontainer">
+      <button (click)="addTask()" [disabled]=isLoadingAddTask>
+        <i class="fas fa-location-arrow"></i>
+      </button>
+      <input type="text" class="serach" name="addTask" placeholder="Add what you want" [(ngModel)]="task">
+
+    </div>
+  </div>
+</div>
