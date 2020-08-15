@@ -125,8 +125,12 @@ ul {
   }
 }
 
-ul.ngx-pagination {
-  display: flex !important;
-  align-items: center;
-  justify-content: center;
+pagination-controls {
+  pagination-template {
+    ul.ngx-pagination {
+      display: flex !important;
+      align-items: center;
+      justify-content: center;
+    }
+  }
 }
